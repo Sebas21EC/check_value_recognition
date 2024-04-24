@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .form import UploadFileForm
-from .load_model import extraxt_digit_from_image
+from .load_model import extraxt_digit_from_image, load_model
 #from django.http import HttpResponse
 
 # Create your views here.
@@ -15,6 +15,5 @@ def index(request):
             digit = extraxt_digit_from_image(image_bytes)
             return render(request, 'index.html', {'formulario': formulario, 'digit': digit})
     else:
-
         formulario = UploadFileForm()
         return render(request, 'index.html', {'formulario': formulario})

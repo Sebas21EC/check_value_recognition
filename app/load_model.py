@@ -4,9 +4,12 @@ import numpy as np
 import io
 
 
+model = load_model('app/data/model_Mnist.h5')
+print('Model loaded......................')
+
+
 def extraxt_digit_from_image(image_bytes):
     
-    model = load_model('app/data/model_Mnist.h5')
     
     # Convertir la imagen a escala de grises
     image = Image.open(io.BytesIO(image_bytes)).convert('L')
