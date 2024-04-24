@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My App</title>
+  </head>
+  <body>
+    <h1>My App</h1>
+    <p>Welcome to my app!</p>
+    <div id="app">
+      <form  method="post" enctype="multipart/form-data">
+        {% csrf_token %} {{ formulario.as_p }}
+        <input type="submit" value="Submit" />
+      </form>
+      {% if digit is not null %}
+        <p>El número ingresado es: {{ digit }}</p>
+      {% endif %}
+    </div>
+  </body>
+</html>
