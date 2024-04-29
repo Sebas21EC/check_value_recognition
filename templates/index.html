@@ -8,31 +8,31 @@
     {% load django_bootstrap5 %} 
      {% bootstrap_css %} 
      {% bootstrap_javascript %}
-      {% bootstrap_messages %}
+     {% bootstrap_messages %}
   </head>
 
   <body>
     <div class="container mt-4">
       <div class="card">
         <div class="card-header">
-          <h3>Extracción de Dígitos</h3>
+          <h3>Extract digits</h3>
         </div>
         <div class="card-body">
-          <p class="card-text">Autor: Sebastian Carlosama</p>
+          {% comment %} <p class="card-text">Autor: Sebastian Carlosama</p> {% endcomment %}
           <form method="post" enctype="multipart/form-data">
             {% csrf_token %} {% bootstrap_form formulario %}
             <div class="text-center">
-              <input type="submit" class="btn btn-primary" value="Extraer" />
+              <input type="submit" class="btn btn-primary" value="Predict" />
             </div>
           </form>
         </div>
         {% if digit %}
         <div class="card-footer">
-          <p>El número ingresado es: {{ digit }}</p>
+          <p>The number entered is: {{ digit }}</p>
           {% if image_src %}
           <div class="card-footer">
-            <p>Imagen subida para predicción:</p>
-            <img src="{{ image_src }}" alt="Imagen subida" class="img-fluid" />
+            <p>Image uploaded for prediction:</p>
+            <img src="{{ image_src }}" alt="Imagen load" class="img-fluid" />
           </div>
           {% endif %}
         </div>
