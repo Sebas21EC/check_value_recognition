@@ -4,15 +4,11 @@
   <head>
     <title>Extract Digit</title>
     <!-- Incluye Bootstrap CSS -->
-    {# Load the tag library #}
-    {% load django_bootstrap5 %}
-
-    {# Load CSS and JavaScript #}
-    {% bootstrap_css %}
-    {% bootstrap_javascript %}
-
-    {# Display django.contrib.messages as Bootstrap alerts #}
-    {% bootstrap_messages %}
+    {# Load the tag library #} 
+    {% load django_bootstrap5 %} 
+     {% bootstrap_css %} 
+     {% bootstrap_javascript %}
+      {% bootstrap_messages %}
   </head>
 
   <body>
@@ -24,17 +20,22 @@
         <div class="card-body">
           <p class="card-text">Autor: Sebastian Carlosama</p>
           <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% bootstrap_form formulario %}
+            {% csrf_token %} {% bootstrap_form formulario %}
             <div class="text-center">
               <input type="submit" class="btn btn-primary" value="Extraer" />
             </div>
           </form>
         </div>
         {% if digit %}
+        <div class="card-footer">
+          <p>El número ingresado es: {{ digit }}</p>
+          {% if image_src %}
           <div class="card-footer">
-            <p>El número ingresado es: {{ digit }}</p>
+            <p>Imagen subida para predicción:</p>
+            <img src="{{ image_src }}" alt="Imagen subida" class="img-fluid" />
           </div>
+          {% endif %}
+        </div>
         {% endif %}
       </div>
     </div>
