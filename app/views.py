@@ -5,8 +5,6 @@ import base64
 #from django.http import HttpResponse
 
 # Create your views here.
-#muestrame el hola mundo con https
-
 def index(request):
 
     if request.method == 'POST':

@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: reconocimeinto_numeros
+    env: python
+    buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
+    startCommand: "gunicorn reconocimeinto_numeros.wsgi:application --bind 0.0.0.0:8000 --workers 4"
