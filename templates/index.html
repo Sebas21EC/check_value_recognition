@@ -26,17 +26,22 @@
             </div>
           </form>
         </div>
-        {% if digit %}
-        <div class="card-footer">
-          <h3>The number entered is: {{ digit }}</h3>
-          {% if image_src %}
-          <div class="card-footer">
-            <p>Image uploaded for prediction:</p>
-            <img src="{{ image_src }}" alt="Imagen load" class="img-fluid" />
-          </div>
-          {% endif %}
-        </div>
-        {% endif %}
+        {% if number_check %}
+<div class="card-footer">
+  <h3>The number entered is: {{ number_check }}</h3>
+  {% if image_check %}
+  <div class="card-footer">
+    <p>Image uploaded for prediction:</p>
+    <img src="{{ image_check }}" alt="Uploaded Image" class="img-fluid" />
+  </div>
+  <div class="card-footer">
+    <p>Interest area:</p>
+    <img src="{{ image_interest_area }}" alt="Interest Area" class="img-fluid" />
+  </div>
+  {% endif %}
+</div>
+{% endif %}
+
       </div>
     </div>
 
