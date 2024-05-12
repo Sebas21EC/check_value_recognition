@@ -32,7 +32,10 @@
   {% if image_check %}
   <div class="card-footer">
     <p>Image uploaded for prediction:</p>
-    <img src="{{ image_check }}" alt="Uploaded Image" class="img-fluid" />
+    <img src="{{ original_image }}" alt="Original Image" class="img-fluid" />
+  <div class="card-footer">
+    <p>Cropped image:</p>
+    <img src="{{ image_check }}" alt="Cropped Image" class="img-fluid" />
   </div>
   <div class="card-footer">
     <p>Interest area:</p>

@@ -41,7 +41,7 @@ def extract_check(image):
         check_image = cv2.resize(check_image, (975, 670))
         return check_image
     else:
-        return image
+        return None
 
 def crop_interest_area(check_image):
     height, width = check_image.shape
