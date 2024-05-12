@@ -45,7 +45,7 @@ def extract_check(image):
 
 def crop_interest_area(check_image):
     height, width = check_image.shape
-    left = max(50, width - 320)
+    left = max(50, width - 300)
     top = int(height * 0.20)
     right = width - 100
     bottom = int(height * 0.28)
