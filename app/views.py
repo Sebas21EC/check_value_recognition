@@ -22,8 +22,9 @@ def index(request):
             cropped_digit = detect_and_crop_digit(cropped_image)
             digits = extract_digit_from_image(cropped_digit)
             number_check = "".join(map(str, digits))
-            original_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-            _, encoded_image = cv2.imencode('.png', original_image)
+
+            # original_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            _, encoded_image = cv2.imencode('.png', image)
             original_image = base64.b64encode(encoded_image).decode('utf-8')
 
             image_check = cv2.cvtColor(image_check, cv2.COLOR_GRAY2BGR)
