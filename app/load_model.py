@@ -5,7 +5,7 @@ from keras.models import load_model
 import numpy as np
 import cv2
 
-model = load_model('app/data/model1.h5')
+model = load_model('app/data/model2.h5')
 print('Model loaded......................')
 
 
