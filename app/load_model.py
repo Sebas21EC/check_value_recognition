@@ -29,7 +29,6 @@ def extract_check(image):
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     _,thresh =cv2.threshold(gray,0,255,cv2.THRESH_BINARY+cv2.THRESH_OTSU)
     image=thresh
-
     contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     contours = filter_contours_by_area(contours)
     contours = filter_contours_by_ratio(contours)
@@ -39,16 +38,18 @@ def extract_check(image):
         x, y, w, h = cv2.boundingRect(largest_contour)
         check_image = image[y:y+h, x:x+w]
         check_image = cv2.resize(check_image, (975, 670))
+        #quitar el los efecto agregados por el filtro de otsu
+        #check_image = cv2.GaussianBlur(check_image, (5, 5), 0)
         return check_image
     else:
         return None
 
 def crop_interest_area(check_image):
     height, width = check_image.shape
-    left = max(50, width - 300)
-    top = int(height * 0.20)
+    left = max(50, width - 307)
+    top = int(height * 0.21)
     right = width - 100
-    bottom = int(height * 0.28)
+    bottom = int(height * 0.289)
     cropped_image = check_image[top:bottom, left:right]
     return cropped_image
 

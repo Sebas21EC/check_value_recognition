@@ -24,10 +24,13 @@ def index(request):
             number_check = "".join(map(str, digits))
 
             # original_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
             _, encoded_image = cv2.imencode('.png', image)
             original_image = base64.b64encode(encoded_image).decode('utf-8')
 
             image_check = cv2.cvtColor(image_check, cv2.COLOR_GRAY2BGR)
+            #devolver a colores orginales y elimnar en efecto de blanco y negro
+            #image_check = cv2.cvtColor(image_check, cv2.COLOR_BGR2RGB)
             _, encoded_image = cv2.imencode('.png', image_check)
             image_check = base64.b64encode(encoded_image).decode('utf-8')
 
