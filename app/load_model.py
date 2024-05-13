@@ -38,8 +38,6 @@ def extract_check(image):
         x, y, w, h = cv2.boundingRect(largest_contour)
         check_image = image[y:y+h, x:x+w]
         check_image = cv2.resize(check_image, (975, 670))
-        #quitar el los efecto agregados por el filtro de otsu
-        #check_image = cv2.GaussianBlur(check_image, (5, 5), 0)
         return check_image
     else:
         return None
